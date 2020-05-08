@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(clang-tidy-project VERSION 0.1 LANGUAGES CXX)
+project(testing-project VERSION 0.1 LANGUAGES CXX)
 
 include(cmake/ProjectSettings.cmake)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
@@ -20,6 +20,17 @@ set_project_warnings(project_warnings)
 include(cmake/StaticAnalyzers.cmake)
 
 option(BUILD_SHARED_LIBS "Enable compilation of shared libraries" OFF)
+option(ENABLE_TESTING "Enable test builds" ON)
+
+# Run conan
+include (cmake/Conan.cmake)
+run_conan()
+
+if (ENABLE_TESTING)
+  enable_testing()
+  message("Building tests.")
+  add_subdirectory(test)
+endif()
 
 add_subdirectory(include)
 add_subdirectory(src)
