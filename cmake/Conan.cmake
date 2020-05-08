@@ -13,6 +13,8 @@ macro(run_conan)
                  https://api.bintray.com/conan/bincrafters/public-conan)
 
   conan_cmake_run(
+    REQUIRES
+    catch2/2.12.1
     OPTIONS
     BASIC_SETUP
     CMAKE_TARGETS
