@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(clang-tidy-project VERSION 0.1 LANGUAGES CXX)
+project(conan-project VERSION 0.1 LANGUAGES CXX)
 
 include(cmake/ProjectSettings.cmake)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
