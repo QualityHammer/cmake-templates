@@ -21,5 +21,9 @@ include(cmake/StaticAnalyzers.cmake)
 
 option(BUILD_SHARED_LIBS "Enable compilation of shared libraries" OFF)
 
+# Run conan
+include (cmake/Conan.cmake)
+run_conan()
+
 add_subdirectory(include)
 add_subdirectory(src)
