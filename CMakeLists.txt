@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(simple-project VERSION 0.1 LANGUAGES CXX)
+project(clang-tidy-project VERSION 0.1 LANGUAGES CXX)
 
 include(cmake/ProjectSettings.cmake)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
@@ -12,9 +12,12 @@ target_compile_features(project_options INTERFACE cxx_std_17)
 # Interface for warning settings specified in CompilerWarnings.cmake
 add_library(project_warnings INTERFACE)
 
-# standard compiler warnings
+# Standard compiler warnings
 include(cmake/CompilerWarnings.cmake)
 set_project_warnings(project_warnings)
+
+# Allow static analysis options
+include(cmake/StaticAnalyzers.cmake)
 
 option(BUILD_SHARED_LIBS "Enable compilation of shared libraries" OFF)
 
