@@ -15,6 +15,7 @@ macro(run_conan)
   conan_cmake_run(
     REQUIRES
     catch2/2.12.1
+    fmt/6.2.0
     OPTIONS
     BASIC_SETUP
     CMAKE_TARGETS
