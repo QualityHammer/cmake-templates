@@ -21,6 +21,7 @@ include(cmake/StaticAnalyzers.cmake)
 
 option(BUILD_SHARED_LIBS "Enable compilation of shared libraries" OFF)
 option(ENABLE_TESTING "Enable test builds" ON)
+option(ENABLE_FUZZING "Enable fuzz test builds" OFF)
 
 # Run conan
 include (cmake/Conan.cmake)
@@ -30,6 +31,11 @@ if (ENABLE_TESTING)
   enable_testing()
   message("Building tests.")
   add_subdirectory(test)
+endif()
+
+if (ENABLE_FUZZING)
+  message("Building fuzz tests.")
+  add_subdirectory(fuzz_test)
 endif()
 
 add_subdirectory(include)
