@@ -16,6 +16,7 @@ macro(run_conan)
     REQUIRES
     catch2/2.12.1
     fmt/6.2.0
+    enet/1.3.15
     OPTIONS
     BASIC_SETUP
     CMAKE_TARGETS
